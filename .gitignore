@@ -1,0 +1,7 @@
+
+#构建文件
+build
+
+#依赖包
+node_modules
+
