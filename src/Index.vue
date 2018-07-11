@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios'
+import Mock from 'mockjs'
 import PageLoad from '@/components/Loading.vue'
 import BgMusic from '@/components/BgMusic.vue'
 import musicUrl from '@/assets/imgs/bgMusic.mp3'
@@ -48,6 +49,23 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+      // 利用Mock可以生成测试数据
+      let data = Mock.mock({
+        // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+        'list|1-10': [{
+          // 属性 id 是一个自增数，起始值为 1，每次增 1
+          'id|+1': 1,
+          'name': Mock.Random.cname(),
+          'date': Mock.Random.date('yyyy-MM-dd'),
+          'img': Mock.Random.image('200x100', '#ffcc33', '#FFF', 'jpg', 'test'),
+          'color': Mock.Random.hex(),
+          'text': Mock.Random.cparagraph(1, 3),
+          'web': Mock.Random.domain(),
+          'address': Mock.Random.region() + Mock.Random.city(true),
+          'guid': Mock.Random.guid()
+        }]
+      })
+      console.log('data', data)
     },
     // 显示和隐藏音乐
     triggerBgMusic: function () {
