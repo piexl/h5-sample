@@ -88,6 +88,7 @@ export default {
 -|:-:|-:
 music | 背景音乐 | string | 是 | /assets/imgs/bgMusic.mp3
 show | 是否显示 | Boolean | 是 | true
+auto-play | 是否自动播放 | Boolean | 是 | false
 
 方法
 
@@ -103,6 +104,7 @@ closeBgMusic | 关闭背景音乐 | 无
   <BgMusic
     :show="showBgMusic"
     ref="bgMusic"
+    v-bind:auto-play="true"
     :music="musicUrl"></BgMusic>
 </template>
 ```

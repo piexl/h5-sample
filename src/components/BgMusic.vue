@@ -12,13 +12,20 @@ import musicUrl from '@/assets/imgs/bgMusic.mp3'
 
 export default {
   props: {
+    // 是否显示
     show: {
       type: Boolean,
       defaut: true
     },
+    // 音乐地址
     music: {
       type: String,
       defaut: musicUrl
+    },
+    // 音乐自动播放
+    autoPlay: {
+      type: Boolean,
+      defeat: false
     }
   },
   data () {
@@ -31,13 +38,18 @@ export default {
     }
   },
   mounted: function () {
-    this.bgMusic = document.getElementById('bgMusic')
-    this.bgMusic.play()
-    this.musicPlay = !this.bgMusic.paused
-    let _this = this
+    let that = this
+    that.bgMusic = document.getElementById('bgMusic')
+    function musicPlay () {
+      console.log('autoPlay', that.autoPlay)
+      if (that.autoPlay) {
+        that.bgMusic.play()
+        that.musicPlay = !that.bgMusic.paused
+      }
+    }
+    musicPlay()
     document.addEventListener('WeixinJSBridgeReady', function () {
-      _this.bgMusic.play()
-      _this.musicPlay = !_this.bgMusic.paused
+      musicPlay()
     }, false)
   },
   methods: {

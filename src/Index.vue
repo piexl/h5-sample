@@ -6,6 +6,7 @@
     <BgMusic
       :show="showBgMusic"
       ref="bgMusic"
+      v-bind:auto-play="true"
       :music="musicUrl"></BgMusic>
     <div class="page">
       <button class="btn" @click="triggerBgMusic">{{showBgMusic ? '隐藏音乐' : '显示音乐'}}</button>
