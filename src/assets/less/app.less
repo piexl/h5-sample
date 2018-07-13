@@ -4,6 +4,8 @@
 // 引入基础类库
 @import 'ProPreboot.less';
 
+*{.box-sizing;}
+
 html{
     width:100%;
     height:100%;
@@ -16,6 +18,16 @@ body{
     line-height:@line-height-base;
     width:100%;
     height:100%;
+}
+
+// 引入图标字体库
+@font-face {
+  font-family: 'iconfont';  /* project id 609371 */
+  src: url('//at.alicdn.com/t/font_609371_7irs1nbb01bp4x6r.eot');
+  src: url('//at.alicdn.com/t/font_609371_7irs1nbb01bp4x6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_609371_7irs1nbb01bp4x6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_609371_7irs1nbb01bp4x6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_609371_7irs1nbb01bp4x6r.svg#iconfont') format('svg');
 }
 
 .iconfont{
