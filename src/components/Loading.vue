@@ -1,28 +1,51 @@
 <template>
-  <div id="loading" v-show="show">
-    <p class="img-box loading-img">
-      <img :src="loadingImg" alt="">
-    </p>
-    <p>{{text}}</p>
+  <div class="loading"
+    :class="'loading-'+direction"
+    :role="role"
+    :style="{color: color, backgroundColor: background}">
+    <i class="iconfont" :class="'icon-'+icon" :style="{fontSize: size+'px'}"></i>
+    <span class="loading-text" :style="{fontSize: textSize + 'px', color:textColor}" v-if="text && text !== ''">{{text}}</span>
   </div>
 </template>
 
 <script>
-import loadingImg from '@/assets/imgs/loading.gif'
 export default {
   props: {
+    role: {
+      type: String,
+      default: 'inline' // inline || block || fullscreen
+    },
+    size: {
+      type: Number,
+      default: 14
+    },
+    color: {
+      type: String,
+      default: '#333'
+    },
+    icon: {
+      type: String,
+      default: 'loading' // loading1 || loading2 || loading3 || loading4
+    },
+    background: {
+      type: String,
+      default: 'rgba(255,255,255,0.9)'
+    },
     text: {
       type: String,
-      default: '加载中'
+      default: ''
     },
-    show: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data () {
-    return {
-      loadingImg: loadingImg
+    textSize: {
+      type: Number,
+      default: 14
+    },
+    textColor: {
+      type: String,
+      default: '#767676'
+    },
+    direction: {
+      type: String,
+      default: 'row' // row || column
     }
   }
 }
@@ -30,24 +53,62 @@ export default {
 
 <style lang='less' scoped>
 @import '../assets/less/ProPreboot.less';
-#loading{
-  width:100%;
-  height:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background-color:rgba(0,0,0,0.7);
-  color:#fff;
-  .loading-img{
-    width:100*@rpx;
-    margin:20*@rpx;
+//旋转动画
+.rotate{
+  from {
+    .rotate(0deg);
+  }
+  to {
+    .rotate(360deg);
+  }
+}
+@keyframes ani-rotate{ .rotate;}
+@-moz-keyframes ani-rotate{ .rotate;}
+@-webkit-keyframes ani-rotate{ .rotate;}
+@-o-keyframes ani-rotate{ .rotate;}
+
+.loading{
+  display:inline-block;
+  line-height:1;
+  &[role="inline"],&.loading-row{
+    .loading-text{padding-left:0.2em;}
+  }
+  &[role="block"]{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(255,255,255,0.9);
+  }
+  &[role="fullscreen"]{
+    display:block;
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(255,255,255,0.9);
+  }
+  &.loading-row{
+    flex-direction:row;
+  }
+  &.loading-column{
+    flex-direction:column;
+  }
+  .iconfont{
+      display:inline-block;
+      line-height:1;
+      .transform-origin(center,center);
+      .animation(ani-rotate,2s,linear,infinite,normal,forwards);
   }
 }
 </style>

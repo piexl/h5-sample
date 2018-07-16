@@ -4,7 +4,9 @@
       <h2 class="example-title">示例页面</h2>
       <nav class="example-nav">
         <router-link class="link-btn" to="/examples">返回</router-link>
+        <router-link class="link-btn" to="/examples/icon">图标</router-link>
         <router-link class="link-btn" to="/examples/button">按钮</router-link>
+        <router-link class="link-btn" to="/examples/loading">加载</router-link>
       </nav>
     </div>
     <router-view class="page"></router-view>
@@ -28,13 +30,14 @@ export default {
 </script>
 
 <style lang='less' scoped>
+@import '../assets/less/ProPreboot.less';
 .example{
   width:100%;
   height:100%;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  // justify-content:center;
+  // align-items:center;
   position: relative;
   .example-hd{
     width:100%;
@@ -58,5 +61,6 @@ export default {
 }
 .page{
   flex:1;
+  padding:30*@rpx;
 }
 </style>

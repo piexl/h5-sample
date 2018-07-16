@@ -17,7 +17,7 @@
 <script>
 import axios from 'axios'
 import Mock from 'mockjs'
-import PageLoad from '@/components/Loading.vue'
+import PageLoad from '@/components/PageLoading.vue'
 import BgMusic from '@/components/BgMusic.vue'
 import musicUrl from '@/assets/imgs/bgMusic.mp3'
 

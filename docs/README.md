@@ -15,10 +15,11 @@
 
 ### 包含组件
 
++ [Icon 图标](#Icon 图标)
++ [Button 按钮](#Button 按钮)
++ Loading 加载
 + [PageLoading 加载页面](#PageLoading)
 + [BgMusic 背景音乐](#Bgmusic)
-+ Button 按钮
-+ Loading 加载
 + Checkbox 复选框
 + Radio 单选框组
 + Select 单选框
@@ -55,6 +56,94 @@ docsify serve docs
 ```
 
 ## 组件
+
+### Icon 图标
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 默认
+-|:-:|-:
+icon | 图标名称 | string | 否 | -
+color | 颜色 | string | 是 | #333
+size | 大小 | Number | 是 | 14
+
+icon 具体名称参考 [公司图标库](http://www.iconfont.cn/) `图标管理 -> 我的图标 -> 我的项目 -> 移动端H5`
+
+使用示例
+
+``` html
+<template>
+  <Icon :size="20" icon="danpin"/>
+  <Icon :size="20" color="#2185D0" icon="danpin"/>
+  <Icon :size="20" color="#21BA45" icon="danpin"/>
+  <Icon :size="20" color="#00B5AD" icon="danpin"/>
+  <Icon :size="20" color="#FBBD08" icon="danpin"/>
+  <Icon :size="20" color="#e22428" icon="danpin"/>
+</template>
+```
+
+```js
+import Icon from '@/components/Icon.vue'
+export default {
+  components: {
+    Icon
+  }
+}
+```
+
+### Button 按钮
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 可选值 | 默认
+-|:-:|-:
+text | 文字 | string | 否 | - | -
+role | 角色 | string | 是 | button/submit | button
+type | 类型 | string | 是 | default/primary/success/info/warning/danger/link | default
+icon | 图标名 | string | 否 | 根据icon组件的icon名 | -
+disabled | 是否禁用状态 | boolean | 是 | true/false | false
+round | 是否圆角按钮 | boolean | 是 | true/false | false
+block | 是否块级按钮 | boolean | 是 | true/false | false
+loading | 是否加载中状态 | boolean | 是 | true/false | false
+
+使用示例
+
+``` html
+<template>
+  <Button text="button" type="btn-default"/>
+  <Button text="primary" type="btn-primary"/>
+  <Button text="success" type="btn-success"/>
+  <Button text="info" type="btn-info"/>
+  <Button text="warning" type="btn-warning"/>
+  <Button text="danger" type="btn-danger"/>
+  <Button text="link" type="btn-link"/>
+</template>
+```
+
+```js
+import Button from '@/components/Button.vue'
+export default {
+  components: {
+    Button
+  }
+}
+```
+
+### Loading 加载
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 可选值 | 默认 | 备注
+-|:-:|-:
+role | 图标名称 | string | 是 | inline/block/fullscreen | inline | 为block其父元素需要设置position:relative
+size | 大小 | number | 是 | - | 14 | -
+color | 颜色 | string | 是 | 十六进制/rgb | - | #333
+text | 加载文字 | string | 是 | - | - | -
+textSize | 文字大小 | string | 是 | - | - | 设置text时使用
+textColor | 文字颜色 | string | 是 | 十六进制/rgb | - | 设置text时使用
+direction | 排版方式 | string | 是 | row/column | row | 设置图标和文字的排版
+background | 背景颜色 | string | 是 | 十六进制/rgb  | - | role为block/fullscreen时使用
+
 
 ### PageLoading
 
