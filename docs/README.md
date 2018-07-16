@@ -15,9 +15,9 @@
 
 ### 包含组件
 
-+ [Icon 图标](#Icon 图标)
-+ [Button 按钮](#Button 按钮)
-+ Loading 加载
++ [Icon 图标](#Icon图标)
++ [Button 按钮](#Button按钮)
++ [Loading 加载](#Loading加载)
 + [PageLoading 加载页面](#PageLoading)
 + [BgMusic 背景音乐](#Bgmusic)
 + Checkbox 复选框
@@ -57,7 +57,7 @@ docsify serve docs
 
 ## 组件
 
-### Icon 图标
+### Icon图标
 
 属性
 
@@ -91,7 +91,7 @@ export default {
 }
 ```
 
-### Button 按钮
+### Button按钮
 
 属性
 
@@ -129,7 +129,7 @@ export default {
 }
 ```
 
-### Loading 加载
+### Loading加载
 
 属性
 
@@ -143,7 +143,6 @@ textSize | 文字大小 | string | 是 | - | - | 设置text时使用
 textColor | 文字颜色 | string | 是 | 十六进制/rgb | - | 设置text时使用
 direction | 排版方式 | string | 是 | row/column | row | 设置图标和文字的排版
 background | 背景颜色 | string | 是 | 十六进制/rgb  | - | role为block/fullscreen时使用
-
 
 ### PageLoading
 
