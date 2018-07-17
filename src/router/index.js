@@ -9,6 +9,8 @@ import Example from '@/examples/Example'
 import Button from '@/examples/Button'
 import Loading from '@/examples/Loading'
 import Icon from '@/examples/Icon'
+import Radio from '@/examples/Radio'
+import Checkbox from '@/examples/Checkbox'
 
 Vue.use(Router)
 
@@ -31,7 +33,9 @@ export default new Router({
         { path: '', component: Example },
         { path: 'icon', component: Icon },
         { path: 'button', component: Button },
-        { path: 'Loading', component: Loading }
+        { path: 'loading', component: Loading },
+        { path: 'radio', component: Radio },
+        { path: 'checkbox', component: Checkbox }
       ]
     }
   ]

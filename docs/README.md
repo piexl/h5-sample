@@ -18,10 +18,8 @@
 + [Icon 图标](#Icon图标)
 + [Button 按钮](#Button按钮)
 + [Loading 加载](#Loading加载)
-+ [PageLoading 加载页面](#PageLoading)
-+ [BgMusic 背景音乐](#Bgmusic)
-+ Checkbox 复选框
-+ Radio 单选框组
++ [Radio 单选框](#Radio单选框)
++ [Checkbox 复选框](#Checkbox复选框)
 + Select 单选框
 + Upload 上传
 + Popup 弹层
@@ -29,6 +27,8 @@
 + Picker 组件
 + Dialog 对话框
 + Scroll 滚动
++ [PageLoading 加载页面](#PageLoading)
++ [BgMusic 背景音乐](#Bgmusic)
 
 ## 开始项目
 
@@ -144,6 +144,237 @@ textColor | 文字颜色 | string | 是 | 十六进制/rgb | - | 设置text时�
 direction | 排版方式 | string | 是 | row/column | row | 设置图标和文字的排版
 background | 背景颜色 | string | 是 | 十六进制/rgb  | - | role为block/fullscreen时使用
 
+使用示例
+
+``` html
+<template>
+  <div>
+    <div class="section">
+      <h3 class="section-title">icon样式</h3>
+      <Loading/>
+      <Loading icon="loading1"/>
+      <Loading icon="loading2"/>
+      <Loading icon="loading3"/>
+      <Loading icon="loading4"/>
+    </div>
+    <div class="section">
+      <h3 class="section-title">大小</h3>
+      <Loading/>
+      <Loading :size="16" icon="loading1"/>
+      <Loading :size="18" icon="loading2"/>
+      <Loading :size="20" icon="loading3"/>
+      <Loading :size="22" icon="loading4"/>
+    </div>
+    <div class="section">
+      <h3 class="section-title">文字</h3>
+      <Loading text="加载中" :size="18" :text-size="18" color="#2185D0" text-color="#2185D0"/>
+    </div>
+    <div class="section">
+      <h3 class="section-title">块级</h3>
+      <div class="loading-parent">
+        <Loading role="block" :size="20"/>
+        <p>加载测试文字加载测试文字加载测试文字加载测试文字加载测试文字</p>
+      </div>
+      <div class="loading-parent">
+        <Loading role="block" :size="20" background="rgba(0,0,0,0.5)" color="#fff"/>
+        <p>加载测试文字加载测试文字加载测试文字加载测试文字加载测试文字</p>
+      </div>
+      <div class="loading-parent">
+        <Loading role="block" :size="20" text="加载中"/>
+        <p>加载测试文字加载测试文字加载测试文字加载测试文字加载测试文字</p>
+      </div>
+      <div class="loading-parent">
+        <Loading role="block" :size="20" text="加载中" direction="column"/>
+        <p>加载测试文字加载测试文字加载测试文字加载测试文字加载测试文字</p>
+      </div>
+    </div>
+    <div class="section">
+      <h3 class="section-title">全屏 </h3>
+      <p>role为fullscreen</p>
+      <!-- <Loading role="fullscreen" text="加载中" direction="column" :size="20" :text-size="12"/> -->
+    </div>
+  </div>
+</template>
+```
+
+```js
+import Loading from '@/components/Loading.vue'
+export default {
+  components: {
+    Loading
+  }
+}
+```
+
+### Radio单选框
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 可选值 | 默认 |
+-|:-:|-:
+value | 单选框的值 | string/number | 否 | - | -
+role | 展示方式 | string | 是 | inline/block | inline
+size | 文字大小 | number | 是 | - | 14
+option | 选项数组 | array | 是 | - | -
+
+`option`子配置项
+
+参数 | 说明 | 类型
+-|:-:|-:
+label | 单选框显示文字 | string
+value | 单选框的值 | string/number
+disabled | 单选框是否被禁用 | boolean
+
+使用示例
+
+```html
+<template>
+  <div>
+    <label class="radio-label"
+      :style="{fontSize:size}"
+      v-for="(item, index) in option"
+      :key="index"
+      :role="role"
+      :disabled="item.disabled"
+      :class="{'radio-label-checked':radioValue==item.value}">
+      <i class="iconfont" :class="{'icon-danxuan':radioValue!==item.value,'icon-danxuanfill':radioValue==item.value}"></i>
+      <input type="radio"
+        :value="item.value"
+        v-model="radioValue"
+        class="radio-input"
+        :disabled="item.disabled">
+      {{item.label}}
+    </label>
+  </div>
+</template>
+```
+
+```js
+export default {
+  props: {
+    value: [String, Number],
+    option: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    role: {
+      type: String,
+      default: 'inline' // inline || block
+    },
+    size: {
+      type: Number,
+      default: 14
+    }
+  },
+  data () {
+    return {
+      radioValue: this.value
+    }
+  },
+  watch: {
+    radioValue (newV) {
+      this.$emit('input', newV)
+    }
+  }
+}
+```
+
+### Checkbox复选框
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 可选值 | 默认 |
+-|:-:|-:
+value | 复选框的值 | string/number | 否 | - | -
+role | 展示方式 | string | 是 | inline/block | inline
+size | 文字大小 | number | 是 | - | 14
+option | 选项数组 | array | 是 | - | -
+
+`option`子配置项
+
+参数 | 说明 | 类型
+-|:-:|-:
+label | 单选框显示文字 | string
+value | 单选框的值 | string/number
+checked | 是否备选 | boolean
+disabled | 单选框是否被禁用 | boolean
+
+使用示例
+
+```html
+<template>
+  <div>
+    <div class="section">
+      <h3 class="section-title">Radio 复选框</h3>
+      <Checkbox :option="radio1Option" v-model="radio1" :size="16"/>
+      <p>选择结果：{{radio1.join(",")}}</p>
+    </div>
+    <div class="section">
+      <h3 class="section-title">Radio 块级复选框</h3>
+      <Checkbox role="block" :option="radio2Option" v-model="radio2" :size="16"/>
+      <p>选择结果：{{radio2.join(",")}}</p>
+    </div>
+  </div>
+</template>
+```
+
+```js
+import Checkbox from '@/components/Checkbox.vue'
+export default {
+  components: {
+    Checkbox
+  },
+  data () {
+    return {
+      radio1: [1, 2],
+      radio1Option: [
+        {
+          label: 'Option1',
+          value: 1,
+          checked: false,
+          disabled: false
+        },
+        {
+          label: 'Option2',
+          value: 2,
+          checked: false,
+          disabled: false
+        },
+        {
+          label: 'Option3',
+          value: 3,
+          checked: false,
+          disabled: true
+        }
+      ],
+      radio2: [],
+      radio2Option: [
+        {
+          label: 'Option1',
+          value: 1,
+          checked: false,
+          disabled: false
+        },
+        {
+          label: 'Option2',
+          value: 2,
+          checked: false,
+          disabled: false
+        },
+        {
+          label: 'Option3',
+          value: 3,
+          checked: false,
+          disabled: true
+        }
+      ]
+    }
+  }
+}
+```
+
 ### PageLoading
 
 页面加载组件
@@ -153,7 +384,7 @@ background | 背景颜色 | string | 是 | 十六进制/rgb  | - | role为block/
 参数 | 说明 | 类型 | 可选 | 默认
 -|:-:|-:
 text | 加载的文字 | string | 是 | 加载中
-show | 是否显示 | Boolean | 是 | false
+show | 是否显示 | boolean | 是 | false
 
 使用示例
 
@@ -188,7 +419,7 @@ export default {
 参数 | 说明 | 类型 | 可选 | 默认
 -|:-:|-:
 music | 背景音乐 | string | 是 | /assets/imgs/bgMusic.mp3
-show | 是否显示 | Boolean | 是 | true
+show | 是否显示 | boolean | 是 | true
 auto-play | 是否自动播放 | Boolean | 是 | false
 
 方法

@@ -1,12 +1,13 @@
 <template>
   <div class="example">
     <div class="example-hd">
-      <h2 class="example-title">示例页面</h2>
+      <h2 class="example-title"><router-link class="link-btn" to="/examples">示例页面</router-link></h2>
       <nav class="example-nav">
-        <router-link class="link-btn" to="/examples"><Icon icon="xiangzuo1" :size="20"/></router-link>
         <router-link class="link-btn" to="/examples/icon">图标</router-link>
         <router-link class="link-btn" to="/examples/button">按钮</router-link>
         <router-link class="link-btn" to="/examples/loading">加载</router-link>
+        <router-link class="link-btn" to="/examples/radio">单选框</router-link>
+        <router-link class="link-btn" to="/examples/checkbox">复选框</router-link>
       </nav>
     </div>
     <router-view class="page"></router-view>
