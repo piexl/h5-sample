@@ -28,6 +28,6 @@ npm run build --report
 ## 查看文档
 
 ``` bash
-# 启动文档服务，将在3000端口打开
+# 启动文档服务,将在3000端口打开
 docsify serve docs
 ```

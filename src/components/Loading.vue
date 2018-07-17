@@ -71,7 +71,7 @@ export default {
   display:inline-block;
   line-height:1;
   &[role="inline"],&.loading-row{
-    .loading-text{padding-left:0.2em;}
+    .loading-text{padding-left:0.3em;}
   }
   &[role="block"]{
     position: absolute;
@@ -103,6 +103,7 @@ export default {
   }
   &.loading-column{
     flex-direction:column;
+    .loading-text{padding-top:0.3em;}
   }
   .iconfont{
       display:inline-block;

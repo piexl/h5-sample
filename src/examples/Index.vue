@@ -3,7 +3,7 @@
     <div class="example-hd">
       <h2 class="example-title">示例页面</h2>
       <nav class="example-nav">
-        <router-link class="link-btn" to="/examples">返回</router-link>
+        <router-link class="link-btn" to="/examples"><Icon icon="xiangzuo1" :size="20"/></router-link>
         <router-link class="link-btn" to="/examples/icon">图标</router-link>
         <router-link class="link-btn" to="/examples/button">按钮</router-link>
         <router-link class="link-btn" to="/examples/loading">加载</router-link>
@@ -15,11 +15,13 @@
 
 <script>
 import Button from '@/components/Button.vue'
+import Icon from '@/components/Icon.vue'
 
 export default {
   name: 'Example',
   components: {
-    Button
+    Button,
+    Icon
   },
   data () {
     return {
@@ -50,6 +52,9 @@ export default {
   .example-nav{
     width:100%;
     padding:0 5%;
+    display:flex;
+    justify-content:flex-start;
+    align-items:cneter;
     .link-btn{
       font-size:14px;
       display:inline-block;

@@ -22,3 +22,10 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.iconfont{
+  display:inline-block;
+  font-size:14px;
+  line-height:1;
+}
+</style>
