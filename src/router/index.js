@@ -11,6 +11,7 @@ import Loading from '@/examples/Loading'
 import Icon from '@/examples/Icon'
 import Radio from '@/examples/Radio'
 import Checkbox from '@/examples/Checkbox'
+import Scroll from '@/examples/Scroll'
 
 Vue.use(Router)
 
@@ -35,7 +36,8 @@ export default new Router({
         { path: 'button', component: Button },
         { path: 'loading', component: Loading },
         { path: 'radio', component: Radio },
-        { path: 'checkbox', component: Checkbox }
+        { path: 'checkbox', component: Checkbox },
+        { path: 'scroll', component: Scroll }
       ]
     }
   ]

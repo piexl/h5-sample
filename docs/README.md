@@ -20,13 +20,13 @@
 + [Loading 加载](#Loading加载)
 + [Radio 单选框](#Radio单选框)
 + [Checkbox 复选框](#Checkbox复选框)
-+ Select 单选框
++ Select 选择框
 + Upload 上传
 + Popup 弹层
 + Toast 提示信息
 + Picker 组件
 + Dialog 对话框
-+ Scroll 滚动
++ [Scroll 滚动](#Scroll滚动)
 + [PageLoading 加载页面](#PageLoading)
 + [BgMusic 背景音乐](#Bgmusic)
 
@@ -63,8 +63,8 @@ docsify serve docs
 
 参数 | 说明 | 类型 | 可选 | 默认
 -|:-:|-:
-icon | 图标名称 | string | 否 | -
-color | 颜色 | string | 是 | #333
+icon | 图标名称 | String | 否 | -
+color | 颜色 | String | 是 | #333
 size | 大小 | Number | 是 | 14
 
 icon 具体名称参考 [公司图标库](http://www.iconfont.cn/) `图标管理 -> 我的图标 -> 我的项目 -> 移动端H5`
@@ -97,14 +97,14 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 可选值 | 默认
 -|:-:|-:
-text | 文字 | string | 否 | - | -
-role | 角色 | string | 是 | button/submit | button
-type | 类型 | string | 是 | default/primary/success/info/warning/danger/link | default
-icon | 图标名 | string | 否 | 根据icon组件的icon名 | -
-disabled | 是否禁用状态 | boolean | 是 | true/false | false
-round | 是否圆角按钮 | boolean | 是 | true/false | false
-block | 是否块级按钮 | boolean | 是 | true/false | false
-loading | 是否加载中状态 | boolean | 是 | true/false | false
+text | 文字 | String | 否 | - | -
+role | 角色 | String | 是 | button/submit | button
+type | 类型 | String | 是 | default/primary/success/info/warning/danger/link | default
+icon | 图标名 | String | 否 | 根据icon组件的icon名 | -
+disabled | 是否禁用状态 | Boolean | 是 | true/false | false
+round | 是否圆角按钮 | Boolean | 是 | true/false | false
+block | 是否块级按钮 | Boolean | 是 | true/false | false
+loading | 是否加载中状态 | Boolean | 是 | true/false | false
 
 使用示例
 
@@ -135,14 +135,14 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 可选值 | 默认 | 备注
 -|:-:|-:
-role | 图标名称 | string | 是 | inline/block/fullscreen | inline | 为block其父元素需要设置position:relative
-size | 大小 | number | 是 | - | 14 | -
-color | 颜色 | string | 是 | 十六进制/rgb | - | #333
-text | 加载文字 | string | 是 | - | - | -
-textSize | 文字大小 | string | 是 | - | - | 设置text时使用
-textColor | 文字颜色 | string | 是 | 十六进制/rgb | - | 设置text时使用
-direction | 排版方式 | string | 是 | row/column | row | 设置图标和文字的排版
-background | 背景颜色 | string | 是 | 十六进制/rgb  | - | role为block/fullscreen时使用
+role | 图标名称 | String | 是 | inline/block/fullscreen | inline | 为block其父元素需要设置position:relative
+size | 大小 | Number | 是 | - | 14 | -
+color | 颜色 | String | 是 | 十六进制/rgb | - | #333
+text | 加载文字 | String | 是 | - | - | -
+textSize | 文字大小 | String | 是 | - | - | 设置text时使用
+textColor | 文字颜色 | String | 是 | 十六进制/rgb | - | 设置text时使用
+direction | 排版方式 | String | 是 | row/column | row | 设置图标和文字的排版
+background | 背景颜色 | String | 是 | 十六进制/rgb  | - | role为block/fullscreen时使用
 
 使用示例
 
@@ -212,18 +212,18 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 可选值 | 默认 |
 -|:-:|-:
-value | 单选框的值 | string/number | 否 | - | -
-role | 展示方式 | string | 是 | inline/block | inline
-size | 文字大小 | number | 是 | - | 14
+value | 单选框的值 | String/Number | 否 | - | -
+role | 展示方式 | String | 是 | inline/block | inline
+size | 文字大小 | Number | 是 | - | 14
 option | 选项数组 | array | 是 | - | -
 
 `option`子配置项
 
 参数 | 说明 | 类型
 -|:-:|-:
-label | 单选框显示文字 | string
-value | 单选框的值 | string/number
-disabled | 单选框是否被禁用 | boolean
+label | 单选框显示文字 | String
+value | 单选框的值 | String/Number
+disabled | 单选框是否被禁用 | Boolean
 
 使用示例
 
@@ -287,19 +287,19 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 可选值 | 默认 |
 -|:-:|-:
-value | 复选框的值 | string/number | 否 | - | -
-role | 展示方式 | string | 是 | inline/block | inline
-size | 文字大小 | number | 是 | - | 14
+value | 复选框的值 | String/Number | 否 | - | -
+role | 展示方式 | String | 是 | inline/block | inline
+size | 文字大小 | Number | 是 | - | 14
 option | 选项数组 | array | 是 | - | -
 
 `option`子配置项
 
 参数 | 说明 | 类型
 -|:-:|-:
-label | 单选框显示文字 | string
-value | 单选框的值 | string/number
-checked | 是否备选 | boolean
-disabled | 单选框是否被禁用 | boolean
+label | 单选框显示文字 | String
+value | 单选框的值 | String/Number
+checked | 是否备选 | Boolean
+disabled | 单选框是否被禁用 | Boolean
 
 使用示例
 
@@ -375,6 +375,162 @@ export default {
 }
 ```
 
+### Scroll滚动
+
+属性
+
+参数 | 说明 | 类型 | 可选值 | 默认值 | 备注
+-|-|-
+direction | 滚动方向 | String | vertical/horizontal | vertical | `vertical`:父容器需要设置高度<br>`horizontal`:父容器需要设置宽度
+canClick | 是否可点击 | Boolean | true/false | false | -
+probeType | scroll事件触发条件 | Number | 0/1/2/3 | 0 | -
+mouseWheel | 是否开启鼠标滚轮 | Boolean | true/false | false | -
+startY | 纵轴方向初始化位置 | Number | - | 0 | -
+scrollbar | 是否开启滚动条 | Boolean/Object | true/false/- | flase | -
+listenScroll | 是否监听滚动事件 | Boolean | true/false | flase | 与事件scroll配合使用
+listenBeforeScroll | 是否监听滚动前事件 | Boolean | true/false | flase | 与事件<br>before-scroll-start/scroll-start<br>配合使用
+listenScrollEnd | 是否监听滚动完成事件 | Boolean | true/false | flase | 与事件scrollEnd配合使用
+
+有时候我们需要知道滚动的位置。`probeType`为派发scroll事件
+
+可选值 | 说明
+-|-|-
+0 | 不派发 scroll 事件
+1 | 非实时（屏幕滑动超过一定时间后）派发scroll 事件
+2 | 屏幕滑动的过程中实时的派发 scroll 事件
+3 | 不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件
+
+`scrollbar` 这个配置可以开启滚动条，默认为 false。当设置为 true 或者是一个 Object 的时候，都会开启滚动条
+
+参数 | 说明 | 类型 | 默认
+-|-|-
+fade | 当滚动停止的时候滚动条是否需要渐隐 | Boolean | true
+interactive | 滚动条是否可以交互 | Boolean | false
+
+事件
+
+事件名 | 说明 | 参数
+-|-|-
+scroll | 滚动过程中 | Object{x, y}-实时滚动位置的坐标
+before-scroll-start | 开始滚动前 | 无
+scroll-start | 开始滚动 | 无
+scroll-end | 滚动结束 | Object{x, y}-实时滚动位置的坐标
+
+方法
+
+方法名 | 说明 | 参数
+-|-|-
+scrollTo | 滚动到指定位置 | x: 横向位置<br>y: 纵向位置<br>time: 过渡动画时间<br>ease: 缓动函数，一般不建议修改
+scrollToElement | 滚动到指定位置 | el: 滚动到的目标元素, 如果是字符串，则内部会尝试调用 querySelector 转换成 DOM 对象<br> time: 滚动动画执行的时长（单位 ms）<br>offsetX: 相对于目标元素的横轴偏移量，如果设置为 true，则滚到目标元素的中心位置<br>offsetY: 相对于目标元素的纵轴偏移量，如果设置为 true，则滚到目标元素的中心位置<br>easing:缓动函数，一般不建议修改
+disable | 禁用滚动 | -
+enable | 启用滚动，默认是开启滚动的。 | -
+stop | 立即停止当前运行的滚动动画。 | -
+refresh | 刷新 | -
+destroy | 销毁 | -
+
+使用示例
+
+```html
+<template>
+  <div class="scroll-page">
+    <div class="section">
+      <h3 class="section-title">纵向滚动</h3>
+      <div class="scroll-vertical">
+        <Scroll :mouse-wheel="true"
+          ref="scroll1"
+          :listen-scroll="true"
+          :probe-type="2"
+          :start-y="-50"
+          :can-click="true"
+          @scroll="scroll1Scroll">
+          <ul class="scroll-content">
+            <li class="item">1</li>
+            ……
+            <li class="item">20</li>
+          </ul>
+        </Scroll>
+      </div>
+    </div>
+    <div class="section">
+      <h3 class="section-title">横向滚动</h3>
+      <div class="scroll-horizontal">
+        <Scroll direction="horizontal">
+          <ul class="scroll-content">
+            <li class="item">1</li>
+            ……
+            <li class="item">20</li>
+          </ul>
+        </Scroll>
+      </div>
+    </div>
+  </div>
+</template>
+```
+
+```js
+import Scroll from '@/components/Scroll.vue'
+export default {
+  components: {
+    Scroll
+  },
+  methods: {
+    test () {
+      console.log('test')
+    },
+    scroll1Scroll (pos) {
+      console.log('scroll1Scroll', pos)
+    }
+  }
+}
+```
+
+```less
+@import '../assets/less/ProPreboot.less';
+.section{
+  margin-bottom:20px;
+  .section-title{
+    font-size:16px;
+    color:@gray-dark;
+    font-weight:normal;
+    margin-bottom:0.5em;
+  }
+}
+.scroll-wrapper{
+  width:100%;
+  height:100%;
+}
+.scroll-vertical{
+  width:100%;
+  height:300px;
+  overflow:hidden;
+  .scroll-content{
+    .item{
+      line-height:2em;
+      font-size:14px;
+      text-align:center;
+      border-top:1px solid @gray-lighter;
+      border-bottom:1px solid @gray-lighter;
+    }
+  }
+}
+.scroll-horizontal{
+  width:100%;
+  overflow:hidden;
+  .scroll-content{
+    display:flex;
+    width:3em*20;
+    .item{
+      padding:0.5em 1em;
+      line-height:2em;
+      font-size:14px;
+      text-align:center;
+      border-left:1px solid @gray-lighter;
+      border-right:1px solid @gray-lighter;
+    }
+  }
+}
+```
+
 ### PageLoading
 
 页面加载组件
@@ -383,8 +539,8 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 默认
 -|:-:|-:
-text | 加载的文字 | string | 是 | 加载中
-show | 是否显示 | boolean | 是 | false
+text | 加载的文字 | String | 是 | 加载中
+show | 是否显示 | Boolean | 是 | false
 
 使用示例
 
@@ -418,8 +574,8 @@ export default {
 
 参数 | 说明 | 类型 | 可选 | 默认
 -|:-:|-:
-music | 背景音乐 | string | 是 | /assets/imgs/bgMusic.mp3
-show | 是否显示 | boolean | 是 | true
+music | 背景音乐 | String | 是 | /assets/imgs/bgMusic.mp3
+show | 是否显示 | Boolean | 是 | true
 auto-play | 是否自动播放 | Boolean | 是 | false
 
 方法
