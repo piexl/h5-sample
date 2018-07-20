@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Page>
     <div class="section">
       <h3 class="section-title">icon样式</h3>
       <Loading/>
@@ -44,14 +44,16 @@
       <p>role为fullscreen</p>
       <!-- <Loading role="fullscreen" text="加载中" direction="column" :size="20" :text-size="12"/> -->
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
+import Page from '@/components/Page.vue'
 import Loading from '@/components/Loading.vue'
 
 export default {
   components: {
+    Page,
     Loading
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Page>
     <div class="section">
       <h3 class="section-title">Radio 单选框</h3>
       <Radio :option="radio1Option" v-model="radio1" :size="16"/>
@@ -10,14 +10,16 @@
       <Radio role="block" :option="radio2Option" v-model="radio2" :size="16"/>
       <p>选择结果：{{radio2}}</p>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
+import Page from '@/components/Page.vue'
 import Radio from '@/components/Radio.vue'
 
 export default {
   components: {
+    Page,
     Radio
   },
   data () {

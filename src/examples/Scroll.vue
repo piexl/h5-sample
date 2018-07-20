@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-page">
+  <Page class="scroll-page">
     <div class="section">
       <h3 class="section-title">纵向滚动</h3>
       <div class="scroll-vertical">
@@ -64,14 +64,16 @@
         </Scroll>
       </div>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
+import Page from '@/components/Page.vue'
 import Scroll from '@/components/Scroll.vue'
 
 export default {
   components: {
+    Page,
     Scroll
   },
   methods: {

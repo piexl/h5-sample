@@ -4,8 +4,8 @@
     :block="block"
     :round="round"
     :disabled="disabled"
-    :class="type">
-    <i class="iconfont" :class="icon" v-if="icon!==''"></i>
+    :class="'btn-'+type">
+    <i class="iconfont" :class="'icon-'+icon" v-if="icon!==''"></i>
     <i class="iconfont icon-loading" v-if="loading"></i>
     {{text}}
   </button>

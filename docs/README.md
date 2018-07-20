@@ -20,11 +20,12 @@
 + [Loading 加载](#Loading加载)
 + [Radio 单选框](#Radio单选框)
 + [Checkbox 复选框](#Checkbox复选框)
-+ Select 选择框
++ [Select 选择框](#Select选择框)
++ [Picker 组件](#Picker组件)
++ [CityPicker 组件](#CityPicker组件)
 + Upload 上传
 + Popup 弹层
 + Toast 提示信息
-+ Picker 组件
 + Dialog 对话框
 + [Scroll 滚动](#Scroll滚动)
 + [PageLoading 加载页面](#PageLoading)
@@ -110,13 +111,13 @@ loading | 是否加载中状态 | Boolean | 是 | true/false | false
 
 ``` html
 <template>
-  <Button text="button" type="btn-default"/>
-  <Button text="primary" type="btn-primary"/>
-  <Button text="success" type="btn-success"/>
-  <Button text="info" type="btn-info"/>
-  <Button text="warning" type="btn-warning"/>
-  <Button text="danger" type="btn-danger"/>
-  <Button text="link" type="btn-link"/>
+  <Button text="button" type="default"/>
+  <Button text="primary" type="primary"/>
+  <Button text="success" type="success"/>
+  <Button text="info" type="info"/>
+  <Button text="warning" type="warning"/>
+  <Button text="danger" type="danger"/>
+  <Button text="link" type="link"/>
 </template>
 ```
 
@@ -371,6 +372,385 @@ export default {
         }
       ]
     }
+  }
+}
+```
+
+### Select选择框
+
+属性
+
+参数 | 说明 | 类型 | 可选值 | 默认值
+-|-|-
+value | 数据模型 | String/Number | - | -
+option | 选项 | Arry | - | -
+title | 选择的标题 | String | - | '请选择'
+cancel-txt | 取消按钮文字 | String | - | '取消'
+confirm-txt | 确定按钮文字 | String | - | '确定'
+selected-index | 默认选项序列 | Arry | - | []
+bolck | 是否块级 | Boolean | true/false | false
+size | 文字大小 | Number | - | 14
+color | 文字颜色 | String | - | '#343637'
+
+使用示例
+
+```html
+<template>
+  <div class="select-view">
+    <div class="section">
+      <h3 class="section-title">行里选择框</h3>
+      <Select
+        :option="option"
+        title="选择角色"
+        v-model="select"/>
+      <span v-if="select">结果为：{{select}}</span>
+    </div>
+    <div class="section">
+      <h3 class="section-title">块级选择框</h3>
+      <Select
+        :option="option"
+        title="选择角色2"
+        :bolck="true"
+        :size="18"
+        color="#2185D0"
+        v-model="select2"
+        :selectedIndex="[1]"/>
+      <span v-if="select2">结果为：{{select2}}</span>
+    </div>
+  </div>
+</template>
+```
+
+```js
+import Select from '@/components/Select.vue'
+let option = [
+  {
+    text: '剧毒',
+    value: '剧毒'
+  },
+  {
+    text: '蚂蚁',
+    value: '剧毒'
+  },
+  {
+    text: '幽鬼',
+    value: '剧毒'
+  },
+  {
+    text: '主宰',
+    value: '剧毒'
+  },
+  {
+    text: '卡尔',
+    value: '剧毒'
+  }
+]
+export default {
+  data () {
+    return {
+      select: '',
+      select2: '',
+      option: option
+    }
+  },
+  components: {
+    Select
+  }
+}
+```
+
+### Picker组件
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 默认值
+-|-|-
+data | 选项的数组 | Arry | 否 | []
+title | 标题  | String | 否 | ''
+cancel-txt | 取消按钮文案  | String | 是 | '取消'
+confirm-txt | 确定按钮文案  | String | 是 | '确定'
+selectedIndex | 被选中的索引值，拉起 picker 后显示这个索引值对应的内容  | Array | 否 | '确定'
+
+`data`子配置项
+
+| 参数 | 说明 | 类型 | 默认值 | 示例 |
+| - | - | - | - | - |
+| text | picker每一列展示的文案 | String/Number | - | - |
+| value | picker每一列展示的每项文案对应的值 | String/Number/Boolean | - | - |
+
+`事件`
+
+| 事件名 | 说明 | 参数1 | 参数2 | 参数3 |
+| - | - | - | - | - |
+| select | 点击确认按钮触发此事件 | selectedVal: 当前选中项每一列的值，Array类型 | selectedIndex: 当前选中项每一列的索引，Array类型 | selectedText: 当前选中项每一列的文案，Array类型 |
+| change | 滚轴滚动后触发此事件 | index: 当前滚动列次序，Number类型 | selectedIndex: 当前列选中项的索引，Number类型 | - |
+| value-change | 所确认的值变化时触发此事件 | selectedVal: 当前确认项每一列的值，Array类型 | selectedIndex: 当前确认项每一列的索引，Array类型 | selectedText: 当前选中项每一列的文案，Array类型 |
+| cancel | 点击取消按钮触发此事件 | - | - | - |
+
+`实例方法`
+
+| 方法名 | 说明 | 参数1 | 参数2 |
+| - | - | - | - |
+| setData | 设置picker可选项 | picker每列可选项的文案和值，Array类型 | picker每列选中的索引，Array类型 |
+| show | 显示 | - | - |
+| hide | 隐藏 | - | - |
+
+使用示例
+
+```html
+<template>
+  <div class="picker-render-view">
+    <div class="select" @click="showPicker(0)" ref="select0">{{ selectedText[0] }}</div>
+    <picker @select="handleSelect(0,arguments)"
+      :selected-index="selectedIndex[0]"
+      ref="picker0"
+      :title="title[0]"
+      cancelTxt="取消"
+      confirmTxt="确定"></picker>
+    <div class="select" @click="showPicker(1)" ref="select1">{{ selectedText[1] }}</div>
+    <picker @select="handleSelect(1,arguments)"
+      :data="data[1]"
+      :selected-index="selectedIndex[1]"
+      ref="picker1"
+      :title="title[1]"
+      cancelTxt="关闭"
+      confirmTxt="好的"></picker>
+
+    <div class="select" @click="showPicker(2)" ref="select2">{{ selectedText[2] }}</div>
+    <picker @select="handleSelect(2,arguments)"
+      :data="data[2]"
+      :selected-index="selectedIndex[2]"
+      ref="picker2"
+      :title="title[2]"
+      cancelTxt="取消"
+      confirmTxt="确定"></picker>
+  </div>
+</template>
+```
+
+```js
+
+import Picker from '@/components/Picker.vue'
+
+let data1 = [
+  {
+    text: '剧毒',
+    value: 1
+  },
+  {
+    text: '蚂蚁',
+    value: 2
+  },
+  {
+    text: '幽鬼',
+    value: 3
+  },
+  {
+    text: '主宰',
+    value: 4
+  },
+  {
+    text: '卡尔',
+    value: 5
+  },
+  {
+    text: '宙斯',
+    value: 6
+  },
+  {
+    text: '巫医',
+    value: 7
+  },
+  {
+    text: '巫妖',
+    value: 8
+  },
+  {
+    text: '神谕者',
+    value: 9
+  },
+  {
+    text: '撼地神牛',
+    value: 10
+  },
+  {
+    text: '蓝胖子',
+    value: 11
+  },
+  {
+    text: '水晶室女',
+    value: 12
+  },
+  {
+    text: '莉娜',
+    value: 13
+  },
+  {
+    text: '斯拉克',
+    value: 14
+  },
+  {
+    text: '斯拉达',
+    value: 15
+  }
+]
+
+let data2 = [
+  {
+    text: '输出',
+    value: 'a'
+  },
+  {
+    text: '控制',
+    value: 'b'
+  },
+  {
+    text: '核心',
+    value: 'c'
+  },
+  {
+    text: '爆发',
+    value: 'd'
+  },
+  {
+    text: '辅助',
+    value: 'e'
+  },
+  {
+    text: '打野',
+    value: 'f'
+  },
+  {
+    text: '逃生',
+    value: 'g'
+  },
+  {
+    text: '先手',
+    value: 'h'
+  }
+]
+
+let data3 = [
+  {
+    text: '梅肯',
+    value: 's'
+  },
+  {
+    text: '秘法鞋',
+    value: 'ss'
+  },
+  {
+    text: '假腿',
+    value: 'sss'
+  },
+  {
+    text: '飞鞋',
+    value: 'ssss'
+  },
+  {
+    text: '辉耀',
+    value: 'sssss'
+  },
+  {
+    text: '金箍棒',
+    value: 'ssssss'
+  }
+]
+
+export default {
+  mounted () {
+    this.$refs.picker0.setData([data1])
+    this.$refs.picker0.setSelectedIndex([1])
+  },
+  data () {
+    return {
+      data: [
+        [data1],
+        [data1, data2],
+        [data1, data2, data3]
+      ],
+      selectedIndex: [[0], [1, 0], [0, 1, 2]],
+      selectedText: ['单列选择器示例', '两列选择器示例', '三列选择器示例'],
+      title: ['单列选择器', '两列选择器', '三列选择器']
+    }
+  },
+  methods: {
+    showPicker (index) {
+      let picker = this.$refs['picker' + index]
+      picker.show()
+    },
+    handleSelect (index, args) {
+      this.selectedText.splice(index, 1, args[2].join('，'))
+    }
+  },
+  components: {
+    Picker
+  }
+}
+
+```
+
+### CityPicker组件
+
+属性
+
+参数 | 说明 | 类型 | 可选 | 默认值
+-|-|-
+data | 选项的数组 | Arry | 否 | []
+title | 标题  | String | 否 | ''
+cancel-txt | 取消按钮文案  | String | 是 | '取消'
+confirm-txt | 确定按钮文案  | String | 是 | '确定'
+selectedIndex | 被选中的索引值，拉起 picker 后显示这个索引值对应的内容  | Array | 否 | '确定'
+
+`事件`
+
+| 事件名 | 说明 | 参数1 | 参数2 | 参数3 |
+| - | - | - | - | - |
+| select | 点击确认按钮触发此事件 | selectedVal: 当前选中项每一列的值，Array类型 | selectedIndex: 当前选中项每一列的索引，Array类型 | selectedText: 当前选中项每一列的文案，Array类型 |
+
+方法
+
+| 方法名 | 说明
+| - | -
+| show | 显示
+| hide | 隐藏
+
+使用示例
+
+```html
+<template>
+  <div class="picker-render-view">
+    <div class="select" @click="showPicker()" ref="select3">{{ selectedText}}</div>
+    <CityPicker @select="handleSelect(3,arguments)" :data="data" :selected-index="selectedIndex"
+      ref="cityPicker" title="省市区三级联动选择器" cancel-txt="取消"
+      confirm-txt="确定"></CityPicker>
+  </div>
+</template>
+```
+
+```js
+mport CityPicker from '@/components/CityPicker.vue'
+import { provinceList, cityList, areaList } from '@/data/areaData'
+
+export default {
+  data () {
+    return {
+      data: [provinceList, cityList, areaList],
+      selectedIndex: [0, 0, 0],
+      selectedText: '省市区三级联动选择器'
+    }
+  },
+  methods: {
+    showPicker (index) {
+      let picker = this.$refs.cityPicker
+      picker.show()
+    },
+    handleSelect (index, args) {
+      this.selectedText = args[2].join('，')
+    }
+  },
+  components: {
+    CityPicker
   }
 }
 ```
@@ -634,4 +1014,3 @@ export default {
 + [官方文档](https://pixijs.io/docs/)
 + [官方示例](https://pixijs.io/examples/)
 + [中文入门教程](https://github.com/Zainking/learningPixi)
-

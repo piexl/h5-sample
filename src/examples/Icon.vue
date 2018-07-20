@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Page>
     <div class="section">
       <h3 class="section-title">icon样式</h3>
       <Icon :size="18" icon="loading"/>
@@ -91,14 +91,16 @@
       <Icon :size="20" color="#FBBD08" icon="danpin"/>
       <Icon :size="20" color="#e22428" icon="danpin"/>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
 import Icon from '@/components/Icon.vue'
+import Page from '@/components/Page.vue'
 
 export default {
   components: {
+    Page,
     Icon
   }
 }
