@@ -4,6 +4,7 @@
     :block="block"
     :round="round"
     :disabled="disabled"
+    @click="click"
     :class="'btn-'+type">
     <i class="iconfont" :class="'icon-'+icon" v-if="icon!==''"></i>
     <i class="iconfont icon-loading" v-if="loading"></i>
@@ -45,6 +46,11 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    click () {
+      this.$emit('click')
     }
   }
 }

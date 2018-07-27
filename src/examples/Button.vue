@@ -62,13 +62,13 @@
     </div>
     <div class="section">
       <h3 class="section-title">警用状态</h3>
-      <Button disabled text="button" type="btn-default"/>
-      <Button disabled text="primary" type="btn-primary"/>
-      <Button disabled text="success" type="btn-success"/>
-      <Button disabled text="info" type="btn-info"/>
-      <Button disabled text="warning" type="btn-warning"/>
-      <Button disabled text="danger" type="btn-danger"/>
-      <Button disabled text="link" type="btn-link"/>
+      <Button disabled text="button" type="default"/>
+      <Button disabled text="primary" type="primary"/>
+      <Button disabled text="success" type="success"/>
+      <Button disabled text="info" type="info"/>
+      <Button disabled text="warning" type="warning"/>
+      <Button disabled text="danger" type="danger"/>
+      <Button disabled text="link" type="link"/>
     </div>
   </Page>
 </template>

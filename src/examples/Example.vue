@@ -6,11 +6,12 @@
       <router-link class="link-btn" to="/examples/icon"><Button text="Icons" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/button"><Button text="Button" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/loading"><Button text="Loading" type="primary" :block="true" /></router-link>
-      <router-link class="link-btn" to="/examples/radio"><Button text="Radi0" type="primary" :block="true" /></router-link>
+      <router-link class="link-btn" to="/examples/radio"><Button text="Radio" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/checkbox"><Button text="Checkbox" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/select"><Button text="Select" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/picker"><Button text="Picker" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/city-picker"><Button text="CityPicker" type="primary" :block="true" /></router-link>
+      <router-link class="link-btn" to="/examples/popup"><Button text="Popup" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/scroll"><Button text="Scroll" type="primary" :block="true" /></router-link>
     </div>
   </Page>

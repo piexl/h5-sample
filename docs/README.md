@@ -24,7 +24,7 @@
 + [Picker 组件](#Picker组件)
 + [CityPicker 组件](#CityPicker组件)
 + Upload 上传
-+ Popup 弹层
++ [Popup 弹层](#Popup弹层)
 + Toast 提示信息
 + Dialog 对话框
 + [Scroll 滚动](#Scroll滚动)
@@ -106,6 +106,12 @@ disabled | 是否禁用状态 | Boolean | 是 | true/false | false
 round | 是否圆角按钮 | Boolean | 是 | true/false | false
 block | 是否块级按钮 | Boolean | 是 | true/false | false
 loading | 是否加载中状态 | Boolean | 是 | true/false | false
+
+事件
+
+事件名 | 说明 | 参数
+-| - |-
+click | 点击事件 | -
 
 使用示例
 
@@ -754,6 +760,29 @@ export default {
   }
 }
 ```
+
+### Popup弹层
+
+弹层组件
+
+属性
+
+参数 | 说明 | 类型 | 可选值 | 默认 | 备注
+-|-|-
+visible | 默认显示状态 | Boolean | true/false | false | -
+mask | 是否显示背景层 | Boolean | true/false | true | -
+maskBgColor | 背景层颜色 | String | - | 'rgba(0,0,0,.6)' | -
+maskClosable | 内容展示位置 | Boolean | true/false | true | -
+position | 内容展示位置 | String | center/top/bottom | true | -
+color | 内容文字颜色 | String | - | '#fff' | -
+bgColor | 内容背景颜色 | String | - | 'rgba(0,0,0,.5)' | -
+
+方法
+
+方法名 | 说明
+-|-|-
+show | 显示弹层
+hide | 隐藏弹层
 
 ### Scroll滚动
 

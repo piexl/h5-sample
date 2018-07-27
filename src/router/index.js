@@ -13,9 +13,10 @@ import Icon from '@/examples/Icon'
 import Radio from '@/examples/Radio'
 import Checkbox from '@/examples/Checkbox'
 import Select from '@/examples/Select'
-import Scroll from '@/examples/Scroll'
 import Picker from '@/examples/Picker'
 import CityPicker from '@/examples/CityPicker'
+import Popup from '@/examples/Popup'
+import Scroll from '@/examples/Scroll'
 
 Vue.use(Router)
 
@@ -45,7 +46,8 @@ export default new Router({
         {path: 'select', component: Select, name: 'Select'},
         {path: 'scroll', component: Scroll, name: 'Scroll'},
         {path: 'picker', component: Picker, name: 'Picker'},
-        {path: 'city-picker', component: CityPicker, name: 'CityPicker'}
+        {path: 'city-picker', component: CityPicker, name: 'CityPicker'},
+        {path: 'popup', component: Popup, name: 'Popup'}
       ]
     }
   ]
