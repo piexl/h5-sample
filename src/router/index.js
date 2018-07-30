@@ -16,6 +16,8 @@ import Select from '@/examples/Select'
 import Picker from '@/examples/Picker'
 import CityPicker from '@/examples/CityPicker'
 import Popup from '@/examples/Popup'
+import Toast from '@/examples/Toast'
+import Dialog from '@/examples/Dialog'
 import Scroll from '@/examples/Scroll'
 
 Vue.use(Router)
@@ -47,7 +49,9 @@ export default new Router({
         {path: 'scroll', component: Scroll, name: 'Scroll'},
         {path: 'picker', component: Picker, name: 'Picker'},
         {path: 'city-picker', component: CityPicker, name: 'CityPicker'},
-        {path: 'popup', component: Popup, name: 'Popup'}
+        {path: 'popup', component: Popup, name: 'Popup'},
+        {path: 'Toast', component: Toast, name: 'Toast'},
+        {path: 'Dialog', component: Dialog, name: 'Dialog'}
       ]
     }
   ]

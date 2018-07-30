@@ -81,8 +81,6 @@ export default {
   }
   .popup-content{
     position: absolute;
-    padding:0.6em 1.2em;
-    font-size:16px;
     z-index:9;
     color:#fff;
     &[position='top']{

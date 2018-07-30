@@ -25,8 +25,8 @@
 + [CityPicker 组件](#CityPicker组件)
 + Upload 上传
 + [Popup 弹层](#Popup弹层)
-+ Toast 提示信息
-+ Dialog 对话框
++ [Toast 提示信息](#Toast提示信息)
++ [Dialog 对话框](#Dialog对话框)
 + [Scroll 滚动](#Scroll滚动)
 + [PageLoading 加载页面](#PageLoading)
 + [BgMusic 背景音乐](#Bgmusic)
@@ -783,6 +783,195 @@ bgColor | 内容背景颜色 | String | - | 'rgba(0,0,0,.5)' | -
 -|-|-
 show | 显示弹层
 hide | 隐藏弹层
+
+使用示例
+
+```html
+<template>
+  <div class="page">
+    <Button text="弹层1" type="primary" @click="openPopup('popup1')"/>
+    <Button text="弹层2" type="primary" @click="openPopup('popup2')"/>
+    <Button text="弹层3" type="primary" @click="openPopup('popup3')"/>
+    <Button text="顶部弹层" type="primary" @click="openPopup('popup4')"/>
+    <Button text="底部弹层" type="primary" @click="openPopup('popup5')"/>
+    <Popup ref="popup1">弹层1</Popup>
+    <Popup ref="popup2"
+      :maskClosable="false"
+      maskBgColor="rgba(255,255,255,0.5)">
+      <span @click="closePopup('popup2')">点击关闭弹层2</span>
+    </Popup>
+    <Popup ref="popup3"
+      bgColor="rgba(255,255,255,1)"
+      color="#333"
+      maskBgColor="rgba(0,0,0,0.6)">
+      <p>弹层3</p>
+    </Popup>
+    <Popup ref="popup4" position="top">顶部弹层</Popup>
+    <Popup ref="popup5" position="bottom">底部弹层</Popup>
+  </div>
+</template>
+```
+
+```js
+import Button from '@/components/Button.vue'
+import Popup from '@/components/Popup.vue'
+
+export default {
+  components: {
+    Button,
+    Popup
+  },
+  methods: {
+    openPopup (id) {
+      this.$refs[id].show()
+    },
+    closePopup (id) {
+      this.$refs[id].hide()
+    }
+  }
+}
+```
+
+### Toast提示信息
+
+弹层组件
+
+属性
+
+参数 | 说明 | 类型 | 可选值 | 默认 | 备注
+-|-|-
+position | 显示位置 | String | top | -
+autoClose | 是否自动关闭 | true/false | true | -
+autoCloseTime | 自动关闭的时间 | Number | - | 2000 | 在autoClose为'false'时起效
+role | 提示信息的类型 | String | default/primary/success/<br/>info/warning/danger | 'default' | -
+
+方法
+
+方法名 | 说明
+-|-|-
+show | 显示弹层
+hide | 隐藏弹层
+
+使用示例
+
+```html
+<template>
+  <div class="page">
+    <Button text="toast1" type="primary" @click="openToast('toast1')"/>
+    <Button text="toast-1s自动关闭" type="primary" @click="openToast('toast2')"/>
+    <Button text="toast-点击关闭" type="primary" @click="openToast('toast3')"/>
+    <Button text="toast-顶部提示" type="primary" @click="openToast('toast4')"/>
+    <Button text="toast-primary" type="primary" @click="openToast('toast5')"/>
+    <Button text="toast-success" type="primary" @click="openToast('toast6')"/>
+    <Button text="toast-info" type="primary" @click="openToast('toast7')"/>
+    <Button text="toast-warning" type="primary" @click="openToast('toast8')"/>
+    <Button text="toast-danger" type="primary" @click="openToast('toast9')"/>
+    <Toast ref="toast1" >toast1</Toast>
+    <Toast ref="toast2" :auto-close-time="1000">1s自动关闭</Toast>
+    <Toast ref="toast3" :auto-close="false">点击关闭</Toast>
+    <Toast ref="toast4" position="top">顶部提示</Toast>
+    <Toast ref="toast5" position="top" role="primary">toast-primary</Toast>
+    <Toast ref="toast6" position="top" role="success">toast-primary</Toast>
+    <Toast ref="toast7" position="top" role="info">toast-info</Toast>
+    <Toast ref="toast8" position="top" role="warning">toast-warning</Toast>
+    <Toast ref="toast9" position="top" role="danger">toast-danger</Toast>
+  </div>
+</template>
+```
+
+```js
+import Button from '@/components/Button.vue'
+import Toast from '@/components/Toast.vue'
+
+export default {
+  components: {
+    Button,
+    Toast
+  },
+  methods: {
+    openToast (id) {
+      this.$refs[id].show()
+    },
+    closeToast (id) {
+      this.$refs[id].hide()
+    }
+  }
+}
+```
+
+### Dialog对话框
+
+属性
+
+参数 | 说明 | 类型 | 可选值 | 默认值
+-|-|-
+title | 标题 | String | - | -
+hideCancel | 是否隐藏取消 | Boolean | true/false | false
+showClose | 是否关闭按钮 | Boolean | true/false | true
+
+事件
+
+事件名称 | 说明
+cancel | 取消按钮点击
+confirm | 确定按钮点击
+close |对话框关闭
+
+方法
+
+方法名 | 说明
+-|-|-
+open | 打开对话框
+close | 关闭对话框
+
+使用示例
+
+```html
+<template>
+  <div class="page">
+    <Button text="toast1" type="primary" @click="openDialog('dialog1')"/>
+    <Button text="toast2" type="primary" @click="openDialog('dialog2')"/>
+    <Dialog ref="dialog1"
+      title="toast1"
+      :show-close="false"
+      @cancel="handleCancel"
+      @confirm="handleConfirm">
+      <p>内容区域</p>
+    </Dialog>
+    <Dialog ref="dialog2" title="toast2" @close="handleClose"  :hide-cancel="true">
+      <p>内容区域</p>
+    </Dialog>
+  </div>
+</template>
+```
+
+```js
+import Button from '@/components/Button.vue'
+import Dialog from '@/components/Dialog.vue'
+
+export default {
+  components: {
+    Button,
+    Dialog
+  },
+  methods: {
+    openDialog (id) {
+      this.$refs[id].open()
+    },
+    closeDialog (id) {
+      this.$refs[id].close()
+    },
+    handleClose () {
+      console.log('handleClose')
+    },
+    handleCancel () {
+      console.log('handleCancel')
+    },
+    handleConfirm () {
+      console.log('handleConfirm')
+    }
+  }
+}
+```
 
 ### Scroll滚动
 

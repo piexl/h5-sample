@@ -12,6 +12,8 @@
       <router-link class="link-btn" to="/examples/picker"><Button text="Picker" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/city-picker"><Button text="CityPicker" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/popup"><Button text="Popup" type="primary" :block="true" /></router-link>
+      <router-link class="link-btn" to="/examples/toast"><Button text="Toast" type="primary" :block="true" /></router-link>
+      <router-link class="link-btn" to="/examples/dialog"><Button text="Dialog" type="primary" :block="true" /></router-link>
       <router-link class="link-btn" to="/examples/scroll"><Button text="Scroll" type="primary" :block="true" /></router-link>
     </div>
   </Page>

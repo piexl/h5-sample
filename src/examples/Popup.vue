@@ -23,13 +23,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-import Page from '@/components/Page.vue'
 import Button from '@/components/Button.vue'
 import Popup from '@/components/Popup.vue'
 
 export default {
   components: {
-    Page,
     Button,
     Popup
   },
@@ -44,21 +42,19 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 @import "../assets/less/ProPreboot.less";
 .page{
   width:100%;
   height:100%;
   padding:15px;
 }
-.section{
-  margin-bottom:20px;
-  .section-title{
-    font-size:16px;
-    color:@gray-dark;
-    font-weight:normal;
-    margin-bottom:0.5em;
+.btn{margin-bottom:0.5em;}
+
+.popup{
+  .popup-content{
+    padding:0.6em 1.2em;
+    font-size:14px;
   }
 }
-.btn{margin-bottom:0.5em;}
 </style>
