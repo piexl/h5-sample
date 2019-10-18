@@ -42,7 +42,7 @@ export default {
     // 获取数据
     getData: function () {
       var that = this
-      axios.get('http://hurtigruten.cn/api/mag.destination.list.json')
+      axios.get('http://www.visitflorida.cn/api/mag.pagecommonsinfo.json')
         .then(function (response) {
           console.log('getData', response)
           that.showLoading = false
